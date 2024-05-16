@@ -1,4 +1,4 @@
-this whole stuff is same as the readme you will get in the foulder so just skip to foulder and enjoy :)
+This whole stuff is same as the readme you will get inside the so just skip to foulder and enjoy :)
 
 ### Files to Included in the First Commit
 1. `auto.py` (the main script, config is within)
