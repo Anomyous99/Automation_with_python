@@ -1,4 +1,4 @@
-### Files to Include in the First Commit
+### Files to Included in the First Commit
 1. `auto.py` (the main script, config is within)
 2. `README.md` (project documentation)
 
