@@ -12,7 +12,8 @@ downloads-folder-automation/
 └── README.md
 
 ## Overview
-This Python script is designed to automate the organization of files in your Downloads folder. It sorts files into respective folders based on their file types (e.g., documents, images, videos, etc.), ensuring your Downloads folder remains clean and easy to navigate.
+This Python script is designed to automate the organization of files in your Downloads folder. It sorts files into respective folders based
+on their file types (e.g., documents, images, videos, etc.), ensuring your Downloads folder remains clean and easy to navigate.
 
 ## Features
 - **File Sorting:** Automatically moves files into categorized folders (Documents, Images, Videos, Music, Archives, Others).
@@ -30,14 +31,16 @@ This Python script is designed to automate the organization of files in your Dow
 
 
 ## Configuration []
-The location can be added where I have added mine, and dont worry its withn the code  
+The location can be added where I have added mine, and dont worry its withn the code. 
 
 ## Usage
 ### Running the Script
-For now you have to run the script manually through VS code or any other IDE, will add a run for through concole in future
+For now you have to run the script manually through VS code or any other IDE,
+Will add a command for concole in future.
 
 ## Logging
-The script uses Python's `logging` module to record its activities. Logs are saved to `downloads_automation.log` in the script's directory. You can customize the logging settings in `organize_downloads.py`.
+The script uses Python's `logging` module to record its activities. Logs are saved to `downloads_automation.log` in the script's directory.
+You can customize the logging settings in `auto.py`.
 
 
 ## Contributing
