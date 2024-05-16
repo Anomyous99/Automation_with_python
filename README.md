@@ -47,8 +47,5 @@ You can customize the logging settings in `auto.py`.
 Contributions are welcome! Please submit a pull request or open an issue to discuss any changes.
 
 
-## License
-This project is licensed under the MIT License.
-
 ## Contact
 For any questions or feedback, please contact [rishifogla99@gmail.com].
