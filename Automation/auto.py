@@ -6,11 +6,14 @@ import watchdog
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-source_dir = "/home/reborn666/Downloads/"
-dest_img_dir = "/home/reborn666//"
-dest_music_dir = "/home/reborn666/Music/"
-dest_videos_dir = "/home/reborn666/Videos/"
-dest_docs_dir = "/home/reborn666/Documents/"
+source_dir = "/home/reborn666/Downloads/"           # You can add your directory location here
+dest_img_dir = "/home/reborn666//"                  # Same here
+dest_music_dir = "/home/reborn666/Music/"           # here
+dest_videos_dir = "/home/reborn666/Videos/"         # here 
+dest_docs_dir = "/home/reborn666/Documents/"        # and here
+
+#This is where you add your extension, if you want you can stick with the given extension or 
+#add some more to your liking
 
 image_ext = [".png", ".jpg", ".jpeg"]
 music_ext = [".mp3", ".wav", ".m4a", ".flac"]
@@ -18,6 +21,9 @@ video_ext = [".mp4", ".mkv", ".webm", ".avi"]
 docs_ext = [".pdf", ".docx", ".doc", ".txt", ".xlsx", ".xls", ".pptx", ".ppt",
              ".odt", ".ods", ".odp", ".odg", ".odf", ".odm", ".7z", ".rar",
              ".zip", ".gz", ".bz2", ".xz", ".pdf", ".html", ".xml"]
+
+#This is the place where the fun starts
+#it will copy the files based on their extension
 
 def separate_files(source_dir, dest_dir, ext): 
     for root, dirs, files in os.walk(source_dir):
@@ -31,12 +37,12 @@ def copy_files(source_dir, dest_dir, ext):
             if file.endswith(tuple(ext)):
                 src_file = os.path.join(root, file)
                 shutil.copy(src_file, dest_dir)
-
 copy_files(source_dir, dest_img_dir, image_ext)
 copy_files(source_dir, dest_music_dir, music_ext)
 copy_files(source_dir, dest_videos_dir, video_ext)
 copy_files(source_dir, dest_docs_dir, docs_ext)
 
+#And here it will move them
 def move_files(source_dir, dest_dir, ext):
     for root, dirs, files in os.walk(source_dir):
         for file in files:
@@ -89,6 +95,8 @@ check_files(source_dir, dest_music_dir, music_ext)
 check_files(source_dir, dest_videos_dir, video_ext)
 check_files(source_dir, dest_docs_dir, docs_ext)    
 
+#WARNING!!
+#You should not change the code below 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
     logging.info("Starting Auto-File-Organizer...")
