@@ -37,12 +37,12 @@ def copy_files(source_dir, dest_dir, ext):
             if file.endswith(tuple(ext)):
                 src_file = os.path.join(root, file)
                 shutil.copy(src_file, dest_dir)
+
 copy_files(source_dir, dest_img_dir, image_ext)
 copy_files(source_dir, dest_music_dir, music_ext)
 copy_files(source_dir, dest_videos_dir, video_ext)
 copy_files(source_dir, dest_docs_dir, docs_ext)
 
-#And here it will move them
 def move_files(source_dir, dest_dir, ext):
     for root, dirs, files in os.walk(source_dir):
         for file in files:
@@ -55,12 +55,20 @@ move_files(source_dir, dest_music_dir, music_ext)
 move_files(source_dir, dest_videos_dir, video_ext)
 move_files(source_dir, dest_docs_dir, docs_ext) 
 class MyHandler(FileSystemEventHandler):
-    def on_created(self, event):
-        copy_files(source_dir, dest_img_dir, image_ext)
-        copy_files(source_dir, dest_music_dir, music_ext)
-        copy_files(source_dir, dest_videos_dir, video_ext)
-        copy_files(source_dir, dest_docs_dir, docs_ext) 
+    def on_any_event(self, event):
+        print(f"event type: {event.event_type}, filename: {event.src_path}")
 
+        if event.event_type == 'created':
+            # Take any action here when a file is first created.
+            print(f"Event type: {event.event_type}, filename: {event.src_path}")
+
+        elif event.event_type == 'modified':
+            # Taken any action here when a file is modified.
+            print(f"Event type: {event.event_type}, filename: {event.src_path}")
+            move_files(source_dir, dest_img_dir, image_ext)
+            move_files(source_dir, dest_music_dir, music_ext)
+            move_files(source_dir, dest_videos_dir, video_ext)
+            move_files(source_dir, dest_docs_dir, docs_ext)
 Observers = Observer()
 Observers.schedule(MyHandler(), source_dir, recursive=True)
 Observers.start()
